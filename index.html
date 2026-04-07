@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Uppingham</title>
+    <style>
+        body {
+            background-color: #f4f3ed; /* Màu nền beige */
+            font-family: Arial, sans-serif;
+            color: #1a202c;
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            display: flex;
+            max-width: 1000px;
+            width: 100%;
+            gap: 60px;
+        }
+        .left-col {
+            flex: 1;
+        }
+        .right-col {
+            flex: 1.5;
+        }
+        h1 {
+            text-align: center;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 50px;
+            width: 100%;
+        }
+        .form-group {
+            margin-bottom: 25px;
+        }
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+        .form-row .form-group {
+            flex: 1;
+        }
+        label {
+            display: block;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="email"], input[type="tel"] {
+            width: 100%;
+            padding: 8px 0;
+            border: none;
+            border-bottom: 1px solid #1a202c;
+            background-color: transparent;
+            outline: none;
+            font-size: 14px;
+        }
+        input[type="text"]::placeholder, input[type="email"]::placeholder, input[type="tel"]::placeholder {
+            color: #a0aec0;
+        }
+        .section-title {
+            font-size: 14px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: #1a202c;
+        }
+        .section-title::after {
+            content: '^'; /* Mô phỏng cái icon mũi tên đỏ */
+            color: #e53e3e;
+            transform: rotate(180deg);
+            display: inline-block;
+        }
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #e2e8f0; /* Đường gạch ngang giữa các ô */
+        }
+        .checkbox-group:last-of-type {
+            border-bottom: 1px solid #1a202c; /* Đường chốt viền đậm ở cuối */
+        }
+        .checkbox-group input {
+            margin-right: 12px;
+            cursor: pointer;
+        }
+        .checkbox-group label {
+            font-weight: normal;
+            font-size: 13px;
+            margin-bottom: 0;
+            cursor: pointer;
+        }
+        .submit-btn {
+            background-color: #e53e3e; /* Màu đỏ */
+            color: white;
+            border: none;
+            padding: 12px 40px;
+            font-size: 14px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .submit-btn:hover {
+            background-color: #c53030;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <h1>CONTACT US</h1>
+        <div class="container">
+            <div class="left-col">
+                <h3>UPPINGHAM HUNG YEN</h3>
+                <p style="font-size: 13px;">📞 +84 76 866 8080</p>
+                <hr style="border: 0; border-top: 1px solid #cbd5e0; margin: 20px 0;">
+                <p style="font-size: 13px;">✉️ Inquiries: forward@uppingham.edu.vn<br><br>Admissions: admissions@uppingham.edu.vn</p>
+                <hr style="border: 0; border-top: 1px solid #cbd5e0; margin: 20px 0;">
+                <p style="font-size: 13px;">📍 Executive Office Area, Van Giang Commercial and Tourism Urban Area, Hung Yen Province, Vietnam.</p>
+            </div>
+
+            <div class="right-col">
+                <p style="font-size: 13px; margin-bottom: 30px; line-height: 1.6;">Thanks for your interest in Uppingham Vietnam. We would love to hear from you. Please use the form below to get in touch with us.</p>
+                
+                <form action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DBK0000058O2R" method="POST"; target="hidden_iframe" onsubmit="submitted=true";>
+                    
+                    <input type="hidden" name="oid" value="00DBK0000058O2R">
+                    <input type="hidden" name="retURL" value="https://uppingham.edu.vn">
+
+                    <input type="hidden" id="utm_campaign" name="00NBK000008eqWM" value="">
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>First name *</label>
+                            <input type="text" name="first_name" placeholder="Insert your first name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Last name *</label>
+                            <input type="text" name="last_name" placeholder="Insert your last name" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email address *</label>
+                        <input type="email" name="email" placeholder="Insert your email address" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Contact number *</label>
+                        <input type="tel" name="phone" placeholder="Insert your contact number" required>
+                    </div>
+
+                    <div class="section-title">How did you hear about us</div>
+                    <div class="checkbox-group"><input type="radio" name="lead_source" value="Search Engine"> <label>Search Engine (Google, Bing, etc.)</label></div>
+                    <div class="checkbox-group"><input type="radio" name="lead_source" value="Social Media"> <label>Social Media (Search or banner ad)</label></div>
+                    <div class="checkbox-group"><input type="radio" name="lead_source" value="Billboard"> <label>Billboard</label></div>
+                    <div class="checkbox-group"><input type="radio" name="lead_source" value="Referral"> <label>Referral (Word-of-mouth or from another school)</label></div>
+                    <div class="checkbox-group"><input type="radio" name="lead_source" value="Events"> <label>Events</label></div>
+                    <div class="checkbox-group"><input type="radio" name="lead_source" value="Other"> <label>Other</label></div>
+
+                    <div class="section-title">Enquiry type</div>
+                    <div class="checkbox-group"><input type="radio" name="00NBK000007NNpg" value="Guardian"> <label>Guardian</label></div>
+                    <div class="checkbox-group"><input type="radio" name="00NBK000007NNpg" value="Student"> <label>Student</label></div>
+                    <div class="checkbox-group"><input type="radio" name="00NBK000007NNpg" value="Partnership"> <label>Partnership</label></div>
+                    <div class="checkbox-group"><input type="radio" name="00NBK000007NNpg" value="Careers"> <label>Careers</label></div>
+                    <div class="checkbox-group"><input type="radio" name="00NBK000007NNpg" value="Media"> <label>Media</label></div>
+                    <div class="checkbox-group"><input type="radio" name="00NBK000007NNpg" value="Supplier / Vendor"> <label>Supplier / Vendor</label></div>
+                    <div class="checkbox-group"><input type="radio" name="00NBK000007NNpg" value="General Enquiry"> <label>General Enquiry</label></div>
+
+
+                    <div class="form-group" style="margin-top: 30px;">
+                        <label>Message *</label>
+                        <textarea name="description" placeholder="Insert your message" required style="width: 100%; padding: 8px 0; border: none; border-bottom: 1px solid #1a202c; background-color: transparent; outline: none; font-size: 14px; font-family: inherit; resize: vertical; min-height: 30px;"></textarea>
+                    </div>
+
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <button type="submit" class="submit-btn">Submit</button>
+                        <span style="color: #a0aec0; font-size: 12px;">*Required</span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted){ showSuccessAndRedirect(); }"></iframe>
+
+    <script>
+        var submitted = false;
+
+        function showSuccessAndRedirect() {
+            alert("Thank you! Your information has been successfully sent.");
+            window.location.href = "https://uppingham.edu.vn"; 
+        }
+    </script>
+    <script>
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const utmCampaignValue = urlParams.get('utm_campaign');
+            if (utmCampaignValue) {
+                document.getElementById('utm_campaign').value = utmCampaignValue;
+                console.log("Đã bắt được mã UTM: " + utmCampaignValue);
+            } else {
+                console.log("Không tìm thấy mã UTM trên URL.");
+            }
+        };
+    </script>
+    
+</body>
+</html>
