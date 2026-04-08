@@ -105,9 +105,15 @@
             cursor: pointer;
             font-weight: bold;
             margin-top: 20px;
+            transition: all 0.3s ease;
         }
         .submit-btn:hover {
             background-color: #c53030;
+        }
+        /* Style khi nút bị disable */
+        .submit-btn:disabled {
+            background-color: #a0aec0;
+            cursor: not-allowed;
         }
         /* --- ĐOẠN CODE BỔ SUNG CHO GIAO DIỆN ĐIỆN THOẠI --- */
         @media screen and (max-width: 768px) {
@@ -142,7 +148,7 @@
             <div class="right-col">
                 <p style="font-size: 13px; margin-bottom: 30px; line-height: 1.6;">Thanks for your interest in Uppingham Vietnam. We would love to hear from you. Please use the form below to get in touch with us.</p>
                 
-                <form action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DBK0000058O2R" method="POST"; target="hidden_iframe" onsubmit="submitted=true";>
+                <form action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DBK0000058O2R" method="POST" target="hidden_iframe" onsubmit="return handleSubmit();">
                     
                     <input type="hidden" name="oid" value="00DBK0000058O2R">
                     <input type="hidden" name="retURL" value="https://uppingham.edu.vn">
@@ -194,7 +200,7 @@
                     </div>
 
                     <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <button type="submit" class="submit-btn">Submit</button>
+                        <button type="submit" id="submitBtn" class="submit-btn">Submit</button>
                         <span style="color: #a0aec0; font-size: 12px;">*Required</span>
                     </div>
                 </form>
@@ -205,6 +211,18 @@
 
     <script>
         var submitted = false;
+
+        // Hàm xử lý khi ấn Submit
+        function handleSubmit() {
+            submitted = true;
+            
+            // Tìm nút submit và vô hiệu hóa nó
+            var btn = document.getElementById("submitBtn");
+            btn.disabled = true;
+            btn.innerText = "Submitting..."; // Đổi text để người dùng biết hệ thống đang chạy
+            
+            return true; // Tiếp tục gửi form
+        }
 
         function showSuccessAndRedirect() {
             alert("Thank you! Your information has been successfully sent.");
