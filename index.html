@@ -148,12 +148,12 @@
             <div class="right-col">
                 <p style="font-size: 13px; margin-bottom: 30px; line-height: 1.6;">Thanks for your interest in Uppingham Vietnam. We would love to hear from you. Please use the form below to get in touch with us.</p>
                 
-                <form action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DBK0000058SXK" method="POST" target="hidden_iframe" onsubmit="return handleSubmit();">
+                <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00Dd500000CnbvZ" method="POST" target="hidden_iframe" onsubmit="return handleSubmit();">
                     
-                    <input type="hidden" name="oid" value="00DBK0000058SXK">
+                    <input type="hidden" name="oid" value="00Dd500000CnbvZ">
                     <input type="hidden" name="retURL" value="https://uppingham.edu.vn">
 
-                    <input type="hidden" id="utm_campaign" name="00Nd500000AC8vR" value="">
+                    <input type="hidden" id="utm_campaign" name="00NRB00001d3nyD" value="">
 
                     <div class="form-row">
                         <div class="form-group">
@@ -185,13 +185,13 @@
                     <div class="checkbox-group"><input type="radio" name="lead_source" value="Other"> <label>Other</label></div>
 
                     <div class="section-title">Enquiry type</div>
-                    <div class="checkbox-group"><input type="radio" name="00NBK000007RTum" value="Guardian"> <label>Guardian</label></div>
-                    <div class="checkbox-group"><input type="radio" name="00NBK000007RTum" value="Student"> <label>Student</label></div>
-                    <div class="checkbox-group"><input type="radio" name="00NBK000007RTum" value="Partnership"> <label>Partnership</label></div>
-                    <div class="checkbox-group"><input type="radio" name="00NBK000007RTum" value="Careers"> <label>Careers</label></div>
-                    <div class="checkbox-group"><input type="radio" name="00NBK000007RTum" value="Media"> <label>Media</label></div>
-                    <div class="checkbox-group"><input type="radio" name="00NBK000007RTum" value="Supplier / Vendor"> <label>Supplier / Vendor</label></div>
-                    <div class="checkbox-group"><input type="radio" name="00NBK000007RTum" value="General Enquiry"> <label>General Enquiry</label></div>
+                    <div class="checkbox-group"><input type="radio" name="00NRB00001dO7B4" value="Guardian"> <label>Guardian</label></div>
+                    <div class="checkbox-group"><input type="radio" name="00NRB00001dO7B4" value="Student"> <label>Student</label></div>
+                    <div class="checkbox-group"><input type="radio" name="00NRB00001dO7B4" value="Partnership"> <label>Partnership</label></div>
+                    <div class="checkbox-group"><input type="radio" name="00NRB00001dO7B4" value="Careers"> <label>Careers</label></div>
+                    <div class="checkbox-group"><input type="radio" name="00NRB00001dO7B4" value="Media"> <label>Media</label></div>
+                    <div class="checkbox-group"><input type="radio" name="00NRB00001dO7B4" value="Supplier / Vendor"> <label>Supplier / Vendor</label></div>
+                    <div class="checkbox-group"><input type="radio" name="00NRB00001dO7B4" value="General Enquiry"> <label>General Enquiry</label></div>
 
 
                     <div class="form-group" style="margin-top: 30px;">
@@ -212,16 +212,14 @@
     <script>
         var submitted = false;
 
-        // Hàm xử lý khi ấn Submit
         function handleSubmit() {
             submitted = true;
             
-            // Tìm nút submit và vô hiệu hóa nó
             var btn = document.getElementById("submitBtn");
             btn.disabled = true;
-            btn.innerText = "Submitting..."; // Đổi text để người dùng biết hệ thống đang chạy
+            btn.innerText = "Submitting..."; 
             
-            return true; // Tiếp tục gửi form
+            return true; 
         }
 
         function showSuccessAndRedirect() {
@@ -234,6 +232,7 @@
             const urlParams = new URLSearchParams(window.location.search);
             const utmCampaignValue = urlParams.get('utm_campaign');
             if (utmCampaignValue) {
+                // ĐÃ ĐỔI ID BẮT JS THEO MÃ MỚI CỦA PROD
                 document.getElementById('utm_campaign').value = utmCampaignValue;
                 console.log("Đã bắt được mã UTM: " + utmCampaignValue);
             } else {
