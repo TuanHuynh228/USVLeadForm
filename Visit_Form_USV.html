@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Visit Our Hung Yen Campus</title>
+<title>Welcome to Uppingham Hung Yen</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
     :root {
@@ -13,7 +13,6 @@
         --text: #1a1f3a;
         --muted: #9a9a9a;
         --line: #d4d0c8;
-        --line-dark: #2a2f4a;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -34,27 +33,23 @@
     }
 
     h1 {
-        font-family: 'Cormorant Garamond', serif;
-        font-size: 38px;
-        font-weight: 500;
-        text-align: center;
-        color: var(--navy);
-        letter-spacing: 2px;
+        font-family: 'Inter', sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: var(--text);
         margin-bottom: 24px;
     }
 
-    .subtitle {
-        text-align: center;
-        color: var(--navy);
+    .intro-text {
+        color: var(--text);
         font-size: 15px;
-        margin-bottom: 56px;
+        margin-bottom: 32px;
     }
 
-    .section-label {
-        color: var(--red);
-        font-weight: 500;
-        font-size: 15px;
-        margin-bottom: 24px;
+    .intro-text a {
+        color: var(--text);
+        text-decoration: underline;
     }
 
     .form-row {
@@ -68,26 +63,29 @@
         grid-template-columns: 1fr;
     }
 
-    .form-group label {
+    .form-group {
+        margin-bottom: 24px;
+    }
+
+    .form-group label.field-title {
         display: block;
         font-weight: 600;
         font-size: 15px;
-        color: var(--navy);
-        margin-bottom: 10px;
+        color: var(--text);
+        margin-bottom: 12px;
     }
 
     .required {
-        color: var(--navy);
+        color: var(--text);
     }
 
     .form-group input[type="text"],
     .form-group input[type="email"],
     .form-group input[type="tel"],
-    .form-group input[type="date"],
     .form-group select {
         width: 100%;
         border: none;
-        border-bottom: 1px solid var(--line);
+        border-bottom: 1px solid var(--text);
         background: transparent;
         padding: 8px 0;
         font-family: 'Inter', sans-serif;
@@ -100,11 +98,7 @@
     .form-group input::placeholder {
         color: var(--muted);
         font-weight: 300;
-    }
-
-    .form-group input:focus,
-    .form-group select:focus {
-        border-bottom-color: var(--navy);
+        font-size: 13px;
     }
 
     .form-group select {
@@ -116,179 +110,63 @@
         background-position: right 10px top 50%;
         background-size: 10px auto;
     }
+    
     .form-group select:invalid { color: var(--muted); }
 
-    .divider {
-        border-bottom: 1px solid var(--line);
-        margin: 20px 0;
+    .form-group select option {
+        background-color: #ffffff;
+        color: var(--text);
+    }
+    
+    .form-group select option:disabled {
+        color: var(--muted);
     }
 
-    /* Collapsible */
-    .collapsible {
-        margin: 40px 0;
-        border-bottom: 1px solid var(--line);
-        padding-bottom: 30px;
-    }
-
-    .collapsible-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        cursor: pointer;
-        padding: 8px 0;
-        font-weight: 600;
-        color: var(--navy);
-        font-size: 15px;
-        user-select: none;
-    }
-
-    .collapsible-header .chevron {
-        color: var(--red);
-        font-size: 12px;
-        transition: transform 0.3s;
-    }
-
-    .collapsible.collapsed .chevron {
-        transform: rotate(180deg);
-    }
-
-    .collapsible-body {
-        margin-top: 20px;
+    .radio-group {
         display: flex;
         flex-direction: column;
-        gap: 18px;
+        gap: 12px;
     }
 
-    .collapsible.collapsed .collapsible-body {
-        display: none;
-    }
-
-    /* Custom checkboxes */
     .check-row {
         display: flex;
         align-items: center;
-        gap: 14px;
+        gap: 10px;
         cursor: pointer;
-        color: var(--navy);
+        color: var(--text);
         font-size: 15px;
     }
 
-    .check-row input[type="checkbox"] {
+    .check-row input[type="radio"] {
         appearance: none;
         -webkit-appearance: none;
-        width: 18px;
-        height: 18px;
-        border: 1.5px solid var(--navy);
+        width: 16px;
+        height: 16px;
+        border: 1.5px solid var(--text);
         background: transparent;
         cursor: pointer;
         position: relative;
         flex-shrink: 0;
-        border-radius: 1px;
+        border-radius: 2px;
     }
 
-    .check-row input[type="checkbox"]:checked {
-        background: transparent;
-    }
-
-    .check-row input[type="checkbox"]:checked::after {
+    .check-row input[type="radio"]:checked::after {
         content: "";
         position: absolute;
-        left: 4px;
-        top: 0px;
-        width: 6px;
-        height: 11px;
-        border: solid var(--navy);
+        left: 3px;
+        top: -1px;
+        width: 5px;
+        height: 10px;
+        border: solid var(--text);
         border-width: 0 2px 2px 0;
         transform: rotate(45deg);
     }
 
-    /* Inline check group (Morning/Afternoon, 1-2-3-4, Yes/No) */
-    .inline-checks {
-        display: flex;
-        align-items: center;
-        gap: 28px;
-        padding-top: 6px;
-    }
-
-    .alert-text {
-        color: var(--red);
-        font-weight: 500;
-        font-size: 15px;
-        margin: 40px 0 24px 0;
-    }
-
-    /* Add another child button */
-    .add-btn {
-        width: 100%;
-        background: transparent;
-        border: 1.5px solid var(--navy);
-        padding: 18px;
-        font-family: 'Inter', sans-serif;
-        font-size: 15px;
-        font-weight: 500;
-        color: var(--navy);
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
+    .divider {
+        border-bottom: 1px solid var(--text);
         margin: 30px 0;
-        transition: background 0.2s;
     }
 
-    .add-btn:hover {
-        background: rgba(26, 31, 58, 0.05);
-    }
-
-    .add-btn .plus {
-        font-size: 18px;
-        font-weight: 400;
-    }
-
-    /* Submit */
-    .submit-wrapper {
-        display: flex;
-        justify-content: center;
-        margin-top: 40px;
-    }
-
-    .submit-btn {
-        background: var(--red);
-        color: white;
-        border: none;
-        padding: 16px 90px;
-        font-family: 'Inter', sans-serif;
-        font-size: 16px;
-        font-weight: 500;
-        cursor: pointer;
-        letter-spacing: 0.5px;
-        transition: background 0.2s;
-    }
-
-    .submit-btn:hover {
-        background: #b03a35;
-    }
-
-    /* Date input styling */
-    input[type="date"]::-webkit-calendar-picker-indicator {
-        opacity: 0.4;
-        cursor: pointer;
-    }
-
-    .child-block {
-        margin-top: 24px;
-    }
-
-    .child-block .remove-link {
-        display: inline-block;
-        margin-top: 8px;
-        font-size: 13px;
-        color: var(--red);
-        cursor: pointer;
-        text-decoration: underline;
-    }
-
-    /* Nationality search dropdown */
     .nationality-wrapper {
         position: relative;
     }
@@ -358,123 +236,142 @@
         border-bottom-color: var(--red);
     }
 
+    .submit-wrapper {
+        display: flex;
+        justify-content: flex-start;
+        margin-top: 40px;
+    }
+
+    .submit-btn {
+        background: red;
+        color: white;
+        border: none;
+        padding: 12px 60px;
+        font-family: 'Inter', sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.2s;
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .submit-btn:hover {
+        background: darkred;
+    }
+
     @media (max-width: 640px) {
         body { padding: 30px 16px; }
-        h1 { font-size: 26px; letter-spacing: 1px; }
         .form-row { grid-template-columns: 1fr; gap: 24px; }
-        .submit-btn { padding: 14px 60px; }
-        .inline-checks { flex-wrap: wrap; gap: 16px; }
+        .submit-btn { max-width: 100%; }
     }
 </style>
 </head>
 <body>
 <div class="container">
-    <h1>VISIT OUR HUNG YEN CAMPUS</h1>
-    <p class="subtitle">Please fill in the form below to request a place on one of the Uppingham Visiting Days.</p>
+    <h1>WELCOME TO UPPINGHAM HUNG YEN</h1>
+    
+    <div class="intro-text">
+        <p style="margin-bottom: 16px;">Thank you for considering Uppingham School to cultivate and champion your child's potential.</p>
+        <p style="margin-bottom: 16px;">To experience our state-of-the-art campus and rich British heritage firsthand, please share your availability for a bespoke tour. Our Admissions team will be delighted to contact you within 24 hours (Monday – Friday).</p>
+        <p>Questions? <a href="mailto:#">Email us</a> or Give us a <a href="tel:#">call</a>.</p>
+    </div>
 
-    <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00Dd500000CnbvZ" method="POST" id="visitForm">
-        <input type="hidden" name="oid" value="00Dd500000CnbvZ">
+    <form action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DBS000006TIir" method="POST" id="visitForm">
+        <input type="hidden" name="oid" value="00DBS000006TIir">
         <input type="hidden" name="retURL" value="https://uppingham.edu.vn">
-        
-        <input type="hidden" id="Children_JSON__c" name="00NRB00001hAHMT">
 
-        <div class="section-label">Parent details</div>
+        <div class="form-group">
+            <label class="field-title">I would like to: <span class="required">*</span></label>
+            <div class="radio-group">
+                <label class="check-row"><input type="radio" name="00NRB00001d3nxi" value="Inquire" required> Inquire</label>
+                <label class="check-row"><input type="radio" name="00NRB00001d3nxi" value="Schedule a Tour"> Schedule a Tour</label>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="form-group">
+            <label class="field-title">Preferred Tour Language:</label>
+            <div class="radio-group">
+                <label class="check-row"><input type="radio" name="00NRB00001d3nxb" value="English"> English</label>
+                <label class="check-row"><input type="radio" name="00NRB00001d3nxb" value="Vietnamese"> Vietnamese</label>
+                <label class="check-row"><input type="radio" name="00NRB00001d3nxb" value="Korean"> Korean</label>
+            </div>
+        </div>
+
+        <div class="divider"></div>
 
         <div class="form-row">
             <div class="form-group">
-                <label>First name <span class="required">*</span></label>
-                <input type="text" name="first_name" placeholder="Parent first name" required>
+                <label class="field-title">First Name <span class="required">*</span></label>
+                <input type="text" id="first_name" name="first_name" maxlength="40" required>
             </div>
             <div class="form-group">
-                <label>Last name <span class="required">*</span></label>
-                <input type="text" name="last_name" placeholder="Parent last name" required>
+                <label class="field-title">Last Name <span class="required">*</span></label>
+                <input type="text" id="last_name" name="last_name" maxlength="80" required>
             </div>
         </div>
 
         <div class="form-row">
             <div class="form-group">
-                <label>Email address <span class="required">*</span></label>
-                <input type="email" name="email" placeholder="Parent email address" required>
+                <label class="field-title">Email Address <span class="required">*</span></label>
+                <input type="email" id="email" name="email" maxlength="80" required>
             </div>
             <div class="form-group">
-                <label>Contact number <span class="required">*</span></label>
-                <input type="tel" name="mobile" placeholder="Parent contact number" required>
+                <label class="field-title">Contact Telephone Number <span class="required">*</span></label>
+                <input type="tel" id="mobile" name="mobile" maxlength="40" placeholder="Enter your phone number" required>
             </div>
         </div>
 
         <div class="form-row single">
             <div class="form-group">
-                <label>Nationality <span class="required">*</span></label>
+                <label class="field-title">Nationality <span class="required">*</span></label>
                 <div class="nationality-wrapper" id="nationalityWrapper">
-                    <input type="text" id="nationalitySearch" placeholder="Select Parent nationality" autocomplete="off" readonly>
-                    <input type="hidden" name="00NRB00001hAnuD" id="nationalityValue">
+                    <input type="text" id="nationalitySearch" placeholder="Select nationality" autocomplete="off" readonly>
+                    <input type="hidden" name="00NBS000009Xayn" id="nationalityValue">
                     <ul class="nationality-dropdown" id="nationalityDropdown"></ul>
                 </div>
             </div>
         </div>
 
-        <div class="collapsible" id="hearAbout">
-            <div class="collapsible-header" onclick="toggleCollapse('hearAbout')">
-                <span>How did you hear about us</span>
-                <span class="chevron">&#9650;</span>
-            </div>
-            <div class="collapsible-body">
-                <label class="check-row"><input type="checkbox" name="lead_source" value="Search Engine"> Search Engine (Google, Bing, etc.)</label>
-                <label class="check-row"><input type="checkbox" name="lead_source" value="Social Media"> Social Media (Search or banner ad)</label>
-                <label class="check-row"><input type="checkbox" name="lead_source" value="Billboard"> Billboard</label>
-                <label class="check-row"><input type="checkbox" name="lead_source" value="Referral"> Referral (Word-of-mouth or from another school)</label>
-                <label class="check-row"><input type="checkbox" name="lead_source" value="Events"> Events</label>
-                <label class="check-row"><input type="checkbox" name="lead_source" value="Other"> Other</label>
+        <div class="divider"></div>
+
+        <div class="form-row single">
+            <div class="form-group">
+                <label class="field-title">Interested in Grade <span class="required">*</span></label>
+                <select id="00NBS000009WzRN" name="00NBS000009WzRN" required>
+                    <option value="" disabled selected>Select a grade</option>
+                    <option value="Foundation Stage 1 (Ages 3 – 4)">Foundation Stage 1 (Ages 3 – 4)</option>
+                    <option value="Foundation Stage 2 (Ages 4 – 5)">Foundation Stage 2 (Ages 4 – 5)</option>
+                    <option value="Year 1">Year 1</option>
+                    <option value="Year 2">Year 2</option>
+                    <option value="Year 3">Year 3</option>
+                    <option value="Year 4">Year 4</option>
+                    <option value="Year 5">Year 5</option>
+                    <option value="Year 6">Year 6</option>
+                </select>
             </div>
         </div>
 
-        <div class="form-row">
+        <div class="divider"></div>
+
+        <div class="form-row single">
             <div class="form-group">
-                <label>Preferred visit date <span class="required">*</span></label>
-                <input type="date" name="00NRB00001gCdPt" required>
-            </div>
-            <div class="form-group">
-                <label>Preferred time <span class="required">*</span></label>
-                <div class="inline-checks">
-                    <label class="check-row"><input type="checkbox" name="00NRB00001hBCe5" value="Morning"> Morning</label>
-                    <label class="check-row"><input type="checkbox" name="00NRB00001hBCe5" value="Afternoon"> Afternoon</label>
-                </div>
+                <label class="field-title">How did you hear about us? <span class="required">*</span></label>
+                <select id="00NBS000009X1o9" name="00NBS000009X1o9" required>
+                    <option value="" disabled selected>Select an option</option>
+                    <option value="Google Search">Google Search</option>
+                    <option value="Social Media (Facebook, Instagram)">Social Media (Facebook, Instagram)</option>
+                    <option value="Online Newspapers / Blogs">Online Newspapers / Blogs</option>
+                    <option value="Outdoor Billboards / Displays">Outdoor Billboards / Displays</option>
+                    <option value="Word of Mouth (Friends / Relatives)">Word of Mouth (Friends / Relatives)</option>
+                    <option value="School Events / Workshops">School Events / Workshops</option>
+                    <option value="Printed advertisement in a newspaper, a magazine, flyer">Printed advertisement in a newspaper, a magazine, flyer</option>
+                    <option value="Agent (education/ relocation)">Agent (education/ relocation)</option>
+                </select>
             </div>
         </div>
-
-        <div class="alert-text">Please confirm how many people will be attending the Visiting Day.</div>
-
-        <div class="form-row">
-            <div class="form-group">
-                <label>Number of attendees <span class="required">*</span></label>
-                <div class="inline-checks">
-                    <label class="check-row"><input type="checkbox" name="00NRB00001hAHMU" value="1"> 1</label>
-                    <label class="check-row"><input type="checkbox" name="00NRB00001hAHMU" value="2"> 2</label>
-                    <label class="check-row"><input type="checkbox" name="00NRB00001hAHMU" value="3"> 3</label>
-                    <label class="check-row"><input type="checkbox" name="00NRB00001hAHMU" value="4"> 4</label>
-                </div>
-            </div>
-            <div class="form-group">
-                <label>Will your child attend the visit? <span class="required">*</span></label>
-                <div class="inline-checks">
-                    <label class="check-row"><input type="checkbox" name="00NRB00001hAHMV" value="Yes" checked> Yes</label>
-                    <label class="check-row"><input type="checkbox" name="00NRB00001hAHMV" value="No"> No</label>
-                </div>
-            </div>
-        </div>
-
-        <div id="childrenContainer">
-            <div class="child-block">
-                <div class="form-group">
-                    <label>Child 1 — Date of Birth <span class="required">*</span></label>
-                    <input type="date" name="child1Dob" required>
-                </div>
-            </div>
-        </div>
-
-        <button type="button" class="add-btn" onclick="addChild()">
-            <span class="plus">+</span> Add another child
-        </button>
 
         <div class="submit-wrapper">
             <button type="submit" class="submit-btn">Submit</button>
@@ -484,30 +381,30 @@
 
 <script>
     const NATIONALITIES = [
+        { value: 'VNM', label: 'Vietnamese' },
         { value: 'USA', label: 'American' },
-        { value: 'AUS', label: 'Australian' },
-        { value: 'BRA', label: 'Brazilian' },
         { value: 'GBR', label: 'British' },
-        { value: 'KHM', label: 'Cambodian' },
-        { value: 'CAN', label: 'Canadian' },
+        { value: 'JPN', label: 'Japanese' },
+        { value: 'KOR', label: 'South Korean' },
         { value: 'CHN', label: 'Chinese' },
-        { value: 'PHL', label: 'Filipino' },
         { value: 'FRA', label: 'French' },
         { value: 'DEU', label: 'German' },
-        { value: 'IND', label: 'Indian' },
-        { value: 'IDN', label: 'Indonesian' },
-        { value: 'ITA', label: 'Italian' },
-        { value: 'JPN', label: 'Japanese' },
-        { value: 'LAO', label: 'Laotian' },
-        { value: 'MYS', label: 'Malaysian' },
-        { value: 'MEX', label: 'Mexican' },
         { value: 'RUS', label: 'Russian' },
+        { value: 'AUS', label: 'Australian' },
+        { value: 'CAN', label: 'Canadian' },
         { value: 'SGP', label: 'Singaporean' },
-        { value: 'ZAF', label: 'South African' },
-        { value: 'KOR', label: 'South Korean' },
-        { value: 'ESP', label: 'Spanish' },
         { value: 'THA', label: 'Thai' },
-        { value: 'VNM', label: 'Vietnamese' },
+        { value: 'LAO', label: 'Laotian' },
+        { value: 'KHM', label: 'Cambodian' },
+        { value: 'IDN', label: 'Indonesian' },
+        { value: 'MYS', label: 'Malaysian' },
+        { value: 'PHL', label: 'Filipino' },
+        { value: 'IND', label: 'Indian' },
+        { value: 'ITA', label: 'Italian' },
+        { value: 'ESP', label: 'Spanish' },
+        { value: 'BRA', label: 'Brazilian' },
+        { value: 'MEX', label: 'Mexican' },
+        { value: 'ZAF', label: 'South African' }
     ];
 
     (function setupNationalitySearch() {
@@ -584,107 +481,16 @@
         });
     })();
 
-    function toggleCollapse(id) {
-        document.getElementById(id).classList.toggle('collapsed');
-    }
-
-    const MAX_CHILDREN = 4;
-
-    function addChild() {
-        const container = document.getElementById('childrenContainer');
-        const currentCount = container.querySelectorAll('.child-block').length;
-
-        if (currentCount >= MAX_CHILDREN) {
-            alert(`You can add up to ${MAX_CHILDREN} children only.`);
-            return;
-        }
-
-        const newIndex = currentCount + 1;
-        const block = document.createElement('div');
-        block.className = 'child-block';
-        block.innerHTML = `
-            <div class="form-group">
-                <label>Child ${newIndex} — Date of Birth <span class="required">*</span></label>
-                <input type="date" name="child${newIndex}Dob" required>
-                <span class="remove-link" onclick="removeChildBlock(this)">Remove</span>
-            </div>
-        `;
-        container.appendChild(block);
-    }
-
-    function removeChildBlock(el) {
-        el.closest('.child-block').remove();
-        renumberChildren();
-    }
-
-    function renumberChildren() {
-        const blocks = document.querySelectorAll('#childrenContainer .child-block');
-        blocks.forEach((block, idx) => {
-            const number = idx + 1;
-            const label = block.querySelector('label');
-            const input = block.querySelector('input[type="date"]');
-            const removeLink = block.querySelector('.remove-link');
-
-            label.innerHTML = `Child ${number} — Date of Birth <span class="required">*</span>`;
-            input.name = `child${number}Dob`;
-
-            // Child 1 không có nút Remove, các child khác thì có
-            if (number === 1) {
-                if (removeLink) removeLink.remove();
-            } else {
-                if (!removeLink) {
-                    const link = document.createElement('span');
-                    link.className = 'remove-link';
-                    link.textContent = 'Remove';
-                    link.onclick = function() { removeChildBlock(this); };
-                    block.querySelector('.form-group').appendChild(link);
-                }
-            }
-        });
-    }
-
-    // Make attendee & time & yes/no behave as single-select using checkboxes
-    function setupSingleSelect(name) {
-        document.querySelectorAll(`input[name="${name}"]`).forEach(cb => {
-            cb.addEventListener('change', function() {
-                if (this.checked) {
-                    document.querySelectorAll(`input[name="${name}"]`).forEach(other => {
-                        if (other !== this) other.checked = false;
-                    });
-                }
-            });
-        });
-    }
-
-    // Cập nhật tham số Javascript khớp với ID Custom fields của Org
-    setupSingleSelect('00NRB00001hBCe5'); // Preferred time
-    setupSingleSelect('00NRB00001hAHMU'); // Number of attendees
-    setupSingleSelect('00NRB00001hAHMV'); // Will child attend
-
     document.getElementById('visitForm').addEventListener('submit', function(e) {
         const natSearch = document.getElementById('nationalitySearch');
         const natValue  = document.getElementById('nationalityValue');
         
-        // Bắt lỗi nếu chưa chọn Nationality
         if (!natValue.value) {
             e.preventDefault(); 
             natSearch.classList.add('error');
             natSearch.focus();
             return;
         }
-
-        let childrenData = [];
-        
-        let childInputs = document.querySelectorAll('#childrenContainer input[type="date"]');
-        
-        childInputs.forEach(function(input) {
-            if (input.value) {
-                childrenData.push({ dob: input.value });
-            }
-        });
-        
-        // Nhúng dữ liệu JSON vào ID của trường Children_JSON__c
-        document.getElementById('Children_JSON__c').value = JSON.stringify(childrenData);
     });
 </script>
 </body>
