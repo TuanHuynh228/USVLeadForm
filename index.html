@@ -28,28 +28,32 @@
         }
         h1 {
             text-align: center;
-            font-weight: 300;
-            letter-spacing: 2px;
-            margin-bottom: 50px;
+            font-weight: 700;
+            font-size: 24px;
+            letter-spacing: 1px;
+            margin-bottom: 40px;
             width: 100%;
+            text-transform: uppercase;
         }
         .form-group {
             margin-bottom: 25px;
         }
         .form-row {
             display: flex;
-            gap: 20px;
+            gap: 30px;
         }
         .form-row .form-group {
             flex: 1;
         }
         label {
             display: block;
-            font-size: 12px;
+            font-size: 14px;
             font-weight: bold;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
         }
-        input[type="text"], input[type="email"], input[type="tel"] {
+        
+        /* Gộp chung style cho input, select và textarea */
+        input[type="text"], input[type="email"], input[type="tel"], select, textarea {
             width: 100%;
             padding: 8px 0;
             border: none;
@@ -57,65 +61,55 @@
             background-color: transparent;
             outline: none;
             font-size: 14px;
-        }
-        input[type="text"]::placeholder, input[type="email"]::placeholder, input[type="tel"]::placeholder {
-            color: #a0aec0;
-        }
-        .section-title {
-            font-size: 14px;
-            font-weight: bold;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 30px;
-            margin-bottom: 15px;
+            font-family: inherit;
             color: #1a202c;
         }
-        .section-title::after {
-            content: '^'; /* Mô phỏng cái icon mũi tên đỏ */
-            color: #e53e3e;
-            transform: rotate(180deg);
-            display: inline-block;
+        input[type="text"]::placeholder, input[type="email"]::placeholder, input[type="tel"]::placeholder, textarea::placeholder {
+            color: #a0aec0;
         }
-        .checkbox-group {
-            display: flex;
-            align-items: center;
-            padding: 12px 0;
-            border-bottom: 1px solid #e2e8f0; /* Đường gạch ngang giữa các ô */
-        }
-        .checkbox-group:last-of-type {
-            border-bottom: 1px solid #1a202c; /* Đường chốt viền đậm ở cuối */
-        }
-        .checkbox-group input {
-            margin-right: 12px;
+
+        /* Style cho Dropdown Select */
+        select {
             cursor: pointer;
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%231a1f3a%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.4-12.8z%22%2F%3E%3C%2Fsvg%3E");
+            background-repeat: no-repeat;
+            background-position: right 5px top 50%;
+            background-size: 10px auto;
         }
-        .checkbox-group label {
-            font-weight: normal;
-            font-size: 13px;
-            margin-bottom: 0;
-            cursor: pointer;
+        select:invalid { color: #a0aec0; }
+        
+        /* Fix lỗi nền xám cho Option */
+        select option {
+            background-color: #ffffff;
+            color: #1a202c;
         }
+        select option:disabled {
+            color: #a0aec0;
+        }
+
         .submit-btn {
             background-color: #e53e3e; /* Màu đỏ */
             color: white;
             border: none;
-            padding: 12px 40px;
+            padding: 12px 60px;
             font-size: 14px;
             cursor: pointer;
             font-weight: bold;
-            margin-top: 20px;
+            margin-top: 10px;
             transition: all 0.3s ease;
+            width: 100%;
         }
         .submit-btn:hover {
             background-color: #c53030;
         }
-        /* Style khi nút bị disable */
         .submit-btn:disabled {
             background-color: #a0aec0;
             cursor: not-allowed;
         }
-        /* --- ĐOẠN CODE BỔ SUNG CHO GIAO DIỆN ĐIỆN THOẠI --- */
+
+        /* Responsive */
         @media screen and (max-width: 768px) {
             .container {
                 flex-direction: column;
@@ -134,7 +128,7 @@
 <body>
 
     <div>
-        <h1>CONTACT US</h1>
+        <h1>GET IN TOUCH WITH UPPINGHAM HUNG YEN</h1>
         <div class="container">
             <div class="left-col">
                 <h3>UPPINGHAM HUNG YEN</h3>
@@ -146,62 +140,75 @@
             </div>
 
             <div class="right-col">
-                <p style="font-size: 13px; margin-bottom: 30px; line-height: 1.6;">Thanks for your interest in Uppingham Vietnam. We would love to hear from you. Please use the form below to get in touch with us.</p>
+                <p style="font-size: 14px; margin-bottom: 15px; line-height: 1.6;">Whether you are a prospective parent seeking admissions guidance, a potential partner looking to collaborate, or a visitor with a general inquiry, we look forward to assisting you.</p>
                 
-                <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00Dd500000CnbvZ" method="POST" target="hidden_iframe" onsubmit="return handleSubmit();">
-                    
-                    <input type="hidden" name="oid" value="00Dd500000CnbvZ">
-                    <input type="hidden" name="retURL" value="https://uppingham.edu.vn">
+                <p style="font-size: 14px; margin-bottom: 15px; line-height: 1.6;">Please complete our Inquiry form below, and our dedicated team will respond to you shortly. (Monday – Friday).</p>
 
+                <p style="font-size: 14px; margin-bottom: 35px; line-height: 1.6;">For immediate assistance, feel free to call our Hotline on the left.</p>
+                
+                <form action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DBS000006TIir" method="POST" target="hidden_iframe" onsubmit="return handleSubmit();">
+                    
+                    <input type="hidden" name="oid" value="00DBS000006TIir">
+                    <input type="hidden" name="retURL" value="https://uppingham.edu.vn">
+                    
                     <input type="hidden" id="utm_campaign" name="00NRB00001d3nyD" value="">
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label>First name *</label>
-                            <input type="text" name="first_name" placeholder="Insert your first name" required>
+                            <label>First Name*</label>
+                            <input type="text" name="first_name" required>
                         </div>
                         <div class="form-group">
-                            <label>Last name *</label>
-                            <input type="text" name="last_name" placeholder="Insert your last name" required>
+                            <label>Last Name*</label>
+                            <input type="text" name="last_name" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Email Address*</label>
+                            <input type="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Contact Telephone Number*</label>
+                            <input type="tel" name="mobile" placeholder="<Country Code> <Phone Number>" required>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label>Email address *</label>
-                        <input type="email" name="email" placeholder="Insert your email address" required>
+                        <label>How did you hear about us?*</label>
+                        <select name="00NBS000009X1o9" required>
+                            <option value="" disabled selected>Drop-down list of the channels</option>
+                            <option value="Google Search">Google Search</option>
+                            <option value="Social Media (Facebook, Instagram)">Social Media (Facebook, Instagram)</option>
+                            <option value="Online Newspapers / Blogs">Online Newspapers / Blogs</option>
+                            <option value="Outdoor Billboards / Displays">Outdoor Billboards / Displays</option>
+                            <option value="Word of Mouth (Friends / Relatives)">Word of Mouth (Friends / Relatives)</option>
+                            <option value="School Events / Workshops">School Events / Workshops</option>
+                            <option value="Printed advertisement in a newspaper, a magazine, flyer">Printed advertisement in a newspaper, a magazine, flyer</option>
+                            <option value="Agent (education/ relocation)">Agent (education/ relocation)</option>
+                        </select>
                     </div>
 
                     <div class="form-group">
-                        <label>Contact number *</label>
-                        <input type="tel" name="mobile" placeholder="Insert your contact number" required>
+                        <label>Enquiry Type*</label>
+                        <select name="00NRB00001dO7B4" required>
+                            <option value="" disabled selected>Drop-down list of the types</option>
+                            <option value="Admissions & Enrollment">Admissions & Enrollment</option>
+                            <option value="Partnerships & Collaborations">Partnerships & Collaborations</option>
+                            <option value="Media & Public Relations">Media & Public Relations</option>
+                            <option value="Careers & Talent Acquisition">Careers & Talent Acquisition</option>
+                            <option value="Procurement & Vendor Proposals">Procurement & Vendor Proposals</option>
+                        </select>
                     </div>
 
-                    <div class="section-title">How did you hear about us</div>
-                    <div class="checkbox-group"><input type="radio" name="lead_source" value="Search Engine"> <label>Search Engine (Google, Bing, etc.)</label></div>
-                    <div class="checkbox-group"><input type="radio" name="lead_source" value="Social Media"> <label>Social Media (Search or banner ad)</label></div>
-                    <div class="checkbox-group"><input type="radio" name="lead_source" value="Billboard"> <label>Billboard</label></div>
-                    <div class="checkbox-group"><input type="radio" name="lead_source" value="Referral"> <label>Referral (Word-of-mouth or from another school)</label></div>
-                    <div class="checkbox-group"><input type="radio" name="lead_source" value="Events"> <label>Events</label></div>
-                    <div class="checkbox-group"><input type="radio" name="lead_source" value="Other"> <label>Other</label></div>
-
-                    <div class="section-title">Enquiry type</div>
-                    <div class="checkbox-group"><input type="radio" name="00NRB00001dO7B4" value="Guardian"> <label>Guardian</label></div>
-                    <div class="checkbox-group"><input type="radio" name="00NRB00001dO7B4" value="Student"> <label>Student</label></div>
-                    <div class="checkbox-group"><input type="radio" name="00NRB00001dO7B4" value="Partnership"> <label>Partnership</label></div>
-                    <div class="checkbox-group"><input type="radio" name="00NRB00001dO7B4" value="Careers"> <label>Careers</label></div>
-                    <div class="checkbox-group"><input type="radio" name="00NRB00001dO7B4" value="Media"> <label>Media</label></div>
-                    <div class="checkbox-group"><input type="radio" name="00NRB00001dO7B4" value="Supplier / Vendor"> <label>Supplier / Vendor</label></div>
-                    <div class="checkbox-group"><input type="radio" name="00NRB00001dO7B4" value="General Enquiry"> <label>General Enquiry</label></div>
-
-
-                    <div class="form-group" style="margin-top: 30px;">
-                        <label>Message *</label>
-                        <textarea name="description" placeholder="Insert your message" required style="width: 100%; padding: 8px 0; border: none; border-bottom: 1px solid #1a202c; background-color: transparent; outline: none; font-size: 14px; font-family: inherit; resize: vertical; min-height: 30px;"></textarea>
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea name="description" placeholder="Enter your message here..." style="resize: vertical; min-height: 40px;"></textarea>
                     </div>
 
-                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div>
                         <button type="submit" id="submitBtn" class="submit-btn">Submit</button>
-                        <span style="color: #a0aec0; font-size: 12px;">*Required</span>
                     </div>
                 </form>
             </div>
@@ -226,13 +233,11 @@
             alert("Thank you! Your information has been successfully sent.");
             window.location.href = "https://uppingham.edu.vn"; 
         }
-    </script>
-    <script>
+
         window.onload = function() {
             const urlParams = new URLSearchParams(window.location.search);
             const utmCampaignValue = urlParams.get('utm_campaign');
             if (utmCampaignValue) {
-                // ĐÃ ĐỔI ID BẮT JS THEO MÃ MỚI CỦA PROD
                 document.getElementById('utm_campaign').value = utmCampaignValue;
                 console.log("Đã bắt được mã UTM: " + utmCampaignValue);
             } else {
@@ -240,6 +245,5 @@
             }
         };
     </script>
-    
 </body>
 </html>
