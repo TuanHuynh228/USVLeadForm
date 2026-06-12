@@ -315,6 +315,8 @@
         <input type="hidden" name="oid" value="00DBS000006TIir">
         <input type="hidden" name="retURL" value="https://uppingham.edu.vn">
 
+        <input type="hidden" id="real_Lead_Source" name="00NBS000009X1o9" value="">
+
         <div class="form-group">
             <label class="field-title">I would like to: <span class="required">*</span></label>
             <div class="radio-group">
@@ -393,14 +395,14 @@
             <div class="form-group" id="sourceGroup">
                 <label class="field-title">How did you hear about us? <span class="required">*</span></label>
                 <div class="radio-group">
-                    <label class="check-row"><input type="checkbox" name="00NBS000009X1o9" value="Google Search"> Google Search</label>
-                    <label class="check-row"><input type="checkbox" name="00NBS000009X1o9" value="Social Media (Facebook, Instagram)"> Social Media (Facebook, Instagram)</label>
-                    <label class="check-row"><input type="checkbox" name="00NBS000009X1o9" value="Online Newspapers / Blogs"> Online Newspapers / Blogs</label>
-                    <label class="check-row"><input type="checkbox" name="00NBS000009X1o9" value="Outdoor Billboards / Displays"> Outdoor Billboards / Displays</label>
-                    <label class="check-row"><input type="checkbox" name="00NBS000009X1o9" value="Word of Mouth (Friends / Relatives)"> Word of Mouth (Friends / Relatives)</label>
-                    <label class="check-row"><input type="checkbox" name="00NBS000009X1o9" value="School Events / Workshops"> School Events / Workshops</label>
-                    <label class="check-row"><input type="checkbox" name="00NBS000009X1o9" value="Printed advertisement in a newspaper, a magazine, flyer"> Printed advertisement in a newspaper, a magazine, flyer</label>
-                    <label class="check-row"><input type="checkbox" name="00NBS000009X1o9" value="Agent (education/ relocation)"> Agent (education/ relocation)</label>
+                    <label class="check-row"><input type="checkbox" name="dummy_source_visit" value="Google Search"> Google Search</label>
+                    <label class="check-row"><input type="checkbox" name="dummy_source_visit" value="Social Media (Facebook, Instagram)"> Social Media (Facebook, Instagram)</label>
+                    <label class="check-row"><input type="checkbox" name="dummy_source_visit" value="Online Newspapers / Blogs"> Online Newspapers / Blogs</label>
+                    <label class="check-row"><input type="checkbox" name="dummy_source_visit" value="Outdoor Billboards / Displays"> Outdoor Billboards / Displays</label>
+                    <label class="check-row"><input type="checkbox" name="dummy_source_visit" value="Word of Mouth (Friends / Relatives)"> Word of Mouth (Friends / Relatives)</label>
+                    <label class="check-row"><input type="checkbox" name="dummy_source_visit" value="School Events / Workshops"> School Events / Workshops</label>
+                    <label class="check-row"><input type="checkbox" name="dummy_source_visit" value="Printed advertisement in a newspaper, a magazine, flyer"> Printed advertisement in a newspaper, a magazine, flyer</label>
+                    <label class="check-row"><input type="checkbox" name="dummy_source_visit" value="Agent (education/ relocation)"> Agent (education/ relocation)</label>
                 </div>
                 <div class="error-text" id="sourceError">Please select at least one option.</div>
             </div>
@@ -514,7 +516,7 @@
         });
     })();
 
-    // Bắt validation cho Nationality và Lead Source Checkbox Group
+    // Bắt validation cho Nationality và Lead Source Checkbox Group, xử lý ghép data Lead Source
     document.getElementById('visitForm').addEventListener('submit', function(e) {
         let hasError = false;
 
@@ -526,15 +528,18 @@
             hasError = true;
         }
 
-        // Validation Lead Source (Ít nhất 1 checkbox được chọn)
-        const sourceCheckboxes = document.querySelectorAll('input[name="00NBS000009X1o9"]');
-        const isSourceChecked = Array.from(sourceCheckboxes).some(cb => cb.checked);
+        // Xử lý gom các Checkbox đã chọn cho Lead Source
+        const sourceCheckboxes = document.querySelectorAll('input[name="dummy_source_visit"]');
+        const checkedValues = Array.from(sourceCheckboxes).filter(cb => cb.checked).map(cb => cb.value);
         const sourceError = document.getElementById('sourceError');
-        if (!isSourceChecked) {
+
+        if (checkedValues.length === 0) {
             sourceError.style.display = 'block';
             hasError = true;
         } else {
             sourceError.style.display = 'none';
+            // Đổ data đã nối bằng dấu ';' vào hidden field để gửi đi
+            document.getElementById('real_Lead_Source').value = checkedValues.join(';');
         }
 
         if (hasError) {
@@ -546,7 +551,7 @@
     });
 
     // Ẩn dòng báo lỗi Checkbox ngay khi người dùng chọn vào 1 ô
-    document.querySelectorAll('input[name="00NBS000009X1o9"]').forEach(cb => {
+    document.querySelectorAll('input[name="dummy_source_visit"]').forEach(cb => {
         cb.addEventListener('change', () => document.getElementById('sourceError').style.display = 'none');
     });
 </script>
